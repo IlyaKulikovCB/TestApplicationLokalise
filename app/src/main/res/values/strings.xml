@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">TestApplicationLokalise</string>
+	<string name="hello">Hello, this is a test app. ENG</string>
+	<string name="restart_button">Set NL language</string>
+</resources>
