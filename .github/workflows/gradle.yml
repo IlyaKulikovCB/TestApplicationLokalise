@@ -8,10 +8,12 @@
 name: Java CI with Gradle
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+ workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Build configuration'
+        required: true
+        default: assembleDevDebug
 
 permissions:
   contents: read
@@ -24,7 +26,7 @@ jobs:
     steps:
     - name: Set up JDK 11
       run: |
-       if contains('github.event.inputs.configuration', 'production'); then
+       if contains('${{ github.event.inputs.configuration }}', 'production'); then
           FIREBASE_APP_ID: 1:1030992111622:android:4c67d39bf2260b03
        else
           FIREBASE_APP_ID: 1:1030992111622:android:d71c28f1c7c12a58347b87
