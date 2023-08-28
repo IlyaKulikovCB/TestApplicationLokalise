@@ -26,8 +26,6 @@ jobs:
       run: |
        if [ contains("${{ github.event.inputs.configuration }}", "production") ]; then
           FIREBASE_APP_ID: 1:1030992111622:android:4c67d39bf2260b03
-          echo "Production app id"
        else
           FIREBASE_APP_ID: 1:1030992111622:android:d71c28f1c7c12a58347b87
-          echo "Debug app id"
        fi
