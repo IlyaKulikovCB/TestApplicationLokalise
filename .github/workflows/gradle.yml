@@ -1,0 +1,33 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+# This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-gradle
+
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up JDK 11
+      run: |
+       if [ contains("${{ github.event.inputs.configuration }}", "production") ]; then
+          FIREBASE_APP_ID: 1:1030992111622:android:4c67d39bf2260b03
+          echo "Production app id"
+       else
+          FIREBASE_APP_ID: 1:1030992111622:android:d71c28f1c7c12a58347b87
+          echo "Debug app id"
+       fi
