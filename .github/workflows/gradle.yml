@@ -19,8 +19,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
-
+  BuildAndPush:
     runs-on: ubuntu-latest
 
     steps:
